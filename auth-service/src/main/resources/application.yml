@@ -1,0 +1,47 @@
+spring:
+  application:
+    name: auth-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/finflow}
+    username: ${DB_USERNAME:finflow}
+    password: ${DB_PASSWORD:finflow}
+    hikari:
+      pool-name: auth-db-pool
+      maximum-pool-size: 10
+      minimum-idle: 2
+      connection-timeout: 30000
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: auth
+  flyway:
+    schemas: auth
+    default-schema: auth
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT:8081}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+jwt:
+  secret: ${JWT_SECRET:finflow-super-secret-key-change-in-production-32chars}
+  access-token-ttl: ${JWT_ACCESS_TOKEN_TTL:15m}
+
+logging:
+  level:
+    com.finflow: INFO
