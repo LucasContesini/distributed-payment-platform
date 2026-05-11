@@ -1,0 +1,171 @@
+auth-service/src/main/java/com/finflow/auth/domain/token/RefreshTokenRepository.java
+  s_0c81921be0364e::t_f40100f27ea423 1-9
+auth-service/src/main/java/com/finflow/auth/AuthServiceApplication.java
+  s_0c81921be0364e::t_6003c2a2fbc013 1-14
+fraud-service/build.gradle.kts
+  s_0c81921be0364e::t_facbd538dc7c4c 1-20
+docs/architecture/overview.md
+  s_0c81921be0364e::t_64e1ddd5407207 1-96
+auth-service/src/test/java/com/finflow/auth/api/AuthControllerIntegrationTest.java
+  s_0c81921be0364e::t_86483e32eb774c 1-108
+shared-libs/common-events/build.gradle.kts
+  s_0c81921be0364e::t_8ed0e0854d1ea8 1-8
+infra/monitoring/grafana/provisioning/datasources/datasource.yml
+  s_0c81921be0364e::t_5ffe8d4ed64b1c 1-15
+gradle/wrapper/gradle-wrapper.properties
+  s_0c81921be0364e::t_eaec8362f1bd87 1-7
+api-gateway/src/main/resources/application.yml
+  s_0c81921be0364e::t_41e56527ff6a01 1-62
+build.gradle.kts
+  s_0c81921be0364e::t_9125f8d337fd73 1-28
+api-gateway/src/main/java/com/finflow/gateway/security/JwtProperties.java
+  s_0c81921be0364e::t_4d3de3ead39f11 1-10
+api-gateway/src/main/java/com/finflow/gateway/ApiGatewayApplication.java
+  s_0c81921be0364e::t_50a6849a845d49 1-14
+auth-service/src/main/java/com/finflow/auth/api/dto/AuthResponse.java
+  s_0c81921be0364e::t_ae99e10f9f4ca8 1-10
+.gitignore
+  s_0c81921be0364e::t_0f7e97d54c8492 1-30
+auth-service/src/main/java/com/finflow/auth/domain/exception/InvalidCredentialsException.java
+  s_0c81921be0364e::t_1b45ea1dc92169 1-10
+auth-service/src/main/java/com/finflow/auth/application/command/RefreshTokenCommand.java
+  s_0c81921be0364e::t_1c33a077549f80 1-3
+shared-libs/common-domain/src/main/java/com/finflow/domain/DomainEvent.java
+  s_0c81921be0364e::t_c48a509fe18def 1-10
+infra/docker/docker-compose.monitoring.yml
+  s_0c81921be0364e::t_b3f310b28513c8 1-36
+auth-service/src/main/java/com/finflow/auth/infrastructure/persistence/SpringDataRefreshTokenRepository.java
+  s_0c81921be0364e::t_e6ccb80e630a02 1-17
+auth-service/Dockerfile
+  s_0c81921be0364e::t_e4277df5829b69 1-17
+api-gateway/src/main/java/com/finflow/gateway/filter/RequestLoggingFilter.java
+  s_0c81921be0364e::t_2ee045138707f8 1-37
+auth-service/src/main/java/com/finflow/auth/domain/user/User.java
+  s_0c81921be0364e::t_31c6b31d8a73fa 1-56
+infra/docker/docker-compose.yml
+  s_0c81921be0364e::t_5ddc634ae6d956 1-133
+shared-libs/common-events/src/main/java/com/finflow/events/notification/NotificationRequestedEvent.java
+  s_0c81921be0364e::t_6ab154df0ab64e 1-23
+api-gateway/build.gradle.kts
+  s_0c81921be0364e::t_2a7bab4c11739c 1-24
+auth-service/src/main/resources/db/migration/V2__create_refresh_tokens_table.sql
+  s_0c81921be0364e::t_f7f09a10e8d937 1-12
+auth-service/src/main/resources/db/migration/V1__create_users_table.sql
+  s_0c81921be0364e::t_a719517fa7609f 1-12
+settings.gradle.kts
+  s_0c81921be0364e::t_03473c2be82351 1-13
+shared-libs/common-events/src/main/java/com/finflow/events/payment/PaymentApprovedEvent.java
+  s_0c81921be0364e::t_9a43c541fa13c1 1-19
+auth-service/build.gradle.kts
+  s_0c81921be0364e::t_b7578067f73c12 1-27
+payment-service/build.gradle.kts
+  s_0c81921be0364e::t_af63a4140935db 1-24
+shared-libs/common-domain/build.gradle.kts
+  s_0c81921be0364e::t_8566b4258a5ca1 1-3
+shared-libs/common-events/src/main/java/com/finflow/events/fraud/FraudAnalysisRequestedEvent.java
+  s_0c81921be0364e::t_1a32ff10aebc91 1-22
+infra/monitoring/grafana/provisioning/dashboards/dashboard.yml
+  s_0c81921be0364e::t_b8402b9ee92a03 1-11
+audit-service/build.gradle.kts
+  s_0c81921be0364e::t_d63cec21af4862 1-20
+docs/adr/ADR-001-microservices-architecture.md
+  s_0c81921be0364e::t_2842a5beb2d0d3 1-36
+auth-service/src/main/java/com/finflow/auth/api/dto/RefreshTokenRequest.java
+  s_0c81921be0364e::t_beaa8017625c18 1-5
+infra/docker/init-db.sql
+  s_0c81921be0364e::t_aae847e6bc76fb 1-6
+docs/adr/ADR-002-kafka-event-driven-communication.md
+  s_0c81921be0364e::t_1c10479ea3bc38 1-40
+docs/adr/ADR-003-saga-pattern.md
+  s_0c81921be0364e::t_07dfa5e6d05aeb 1-45
+auth-service/src/main/java/com/finflow/auth/domain/user/UserRepository.java
+  s_0c81921be0364e::t_cb383e4a057ec1 1-11
+api-gateway/Dockerfile
+  s_0c81921be0364e::t_023056f16e0b47 1-17
+auth-service/src/main/java/com/finflow/auth/infrastructure/security/JwtProperties.java
+  s_0c81921be0364e::t_cadcbc7b93cc92 1-12
+auth-service/src/main/java/com/finflow/auth/infrastructure/security/JwtTokenService.java
+  s_0c81921be0364e::t_f8081a50ae7bf7 1-41
+README.md
+  s_0c81921be0364e::t_c9238008ab598c 3-51,55-208,210,212,214-238,242
+auth-service/src/main/java/com/finflow/auth/application/result/AuthResult.java
+  s_0c81921be0364e::t_36c8b332f9d005 1-3
+auth-service/src/main/java/com/finflow/auth/api/dto/RegisterRequest.java
+  s_0c81921be0364e::t_cb7a4938feb0f5 1-10
+auth-service/src/main/java/com/finflow/auth/domain/user/UserRole.java
+  s_0c81921be0364e::t_1a04d04027b9c4 1-6
+shared-libs/common-domain/src/main/java/com/finflow/domain/exception/DomainException.java
+  s_0c81921be0364e::t_5154bbbf3c4c4a 1-12
+auth-service/src/main/java/com/finflow/auth/application/AuthApplicationService.java
+  s_0c81921be0364e::t_99f553b27cc832 1-114
+auth-service/src/main/java/com/finflow/auth/domain/exception/AccountDisabledException.java
+  s_0c81921be0364e::t_12b267d089dcb8 1-10
+notification-service/build.gradle.kts
+  s_0c81921be0364e::t_ceebe16926af11 1-15
+auth-service/src/test/java/com/finflow/auth/application/AuthApplicationServiceTest.java
+  s_0c81921be0364e::t_982ff1e8a1ad67 1-113
+shared-libs/common-domain/src/main/java/com/finflow/domain/AggregateRoot.java
+  s_0c81921be0364e::t_6055e9f5775ae0 1-22
+wallet-service/build.gradle.kts
+  s_0c81921be0364e::t_0ae8f9658e925e 1-20
+shared-libs/common-domain/src/main/java/com/finflow/domain/exception/NotFoundException.java
+  s_0c81921be0364e::t_c0a39f6437d5fa 1-8
+docs/adr/ADR-004-outbox-pattern.md
+  s_0c81921be0364e::t_623ffc599ee681 1-49
+shared-libs/common-events/src/main/java/com/finflow/events/payment/PaymentCreatedEvent.java
+  s_0c81921be0364e::t_25f2de6fe14958 1-23
+shared-libs/common-events/src/main/java/com/finflow/events/fraud/FraudAnalysisCompletedEvent.java
+  s_0c81921be0364e::t_8c010043ae0649 1-22
+api-gateway/src/main/java/com/finflow/gateway/security/JwtTokenValidator.java
+  s_0c81921be0364e::t_bf69ab3e1e3c8b 1-28
+shared-libs/common-events/src/main/java/com/finflow/events/payment/PaymentRejectedEvent.java
+  s_0c81921be0364e::t_18f45e8145625b 1-19
+gradle/libs.versions.toml
+  s_0c81921be0364e::t_503309e9ba9782 1-46
+auth-service/src/main/java/com/finflow/auth/api/AuthController.java
+  s_0c81921be0364e::t_a5f33ce4dee913 1-42
+auth-service/src/main/java/com/finflow/auth/api/advice/GlobalExceptionHandler.java
+  s_0c81921be0364e::t_c76275d3f54ef1 1-50
+auth-service/src/main/java/com/finflow/auth/application/command/RegisterUserCommand.java
+  s_0c81921be0364e::t_cdc71fe7846588 1-3
+auth-service/src/main/java/com/finflow/auth/application/command/LoginCommand.java
+  s_0c81921be0364e::t_faf8ddf0e98fc8 1-3
+auth-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_60a2a94d072c6d 1-47
+auth-service/src/main/java/com/finflow/auth/infrastructure/persistence/UserRepositoryAdapter.java
+  s_0c81921be0364e::t_190fde35b22458 1-38
+auth-service/src/main/java/com/finflow/auth/infrastructure/persistence/RefreshTokenRepositoryAdapter.java
+  s_0c81921be0364e::t_00cf82efcb5244 1-32
+auth-service/src/main/java/com/finflow/auth/api/dto/LoginRequest.java
+  s_0c81921be0364e::t_e1eeb0b70170f9 1-9
+auth-service/src/main/java/com/finflow/auth/domain/exception/UserAlreadyExistsException.java
+  s_0c81921be0364e::t_16fd41c282725b 1-10
+infra/monitoring/prometheus/prometheus.yml
+  s_0c81921be0364e::t_768ae5c577d3f5 1-39
+auth-service/src/main/java/com/finflow/auth/domain/exception/TokenExpiredException.java
+  s_0c81921be0364e::t_e0306fcc85b2f9 1-10
+api-gateway/src/main/java/com/finflow/gateway/filter/JwtAuthenticationFilter.java
+  s_0c81921be0364e::t_8cee7e77902c4b 1-73
+auth-service/src/main/java/com/finflow/auth/domain/token/RefreshToken.java
+  s_0c81921be0364e::t_115e360931adef 1-60
+auth-service/src/main/java/com/finflow/auth/infrastructure/persistence/SpringDataUserRepository.java
+  s_0c81921be0364e::t_c146cda12d51a7 1-12
+auth-service/src/main/java/com/finflow/auth/domain/user/UserStatus.java
+  s_0c81921be0364e::t_ddb8df86906062 1-7
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "28265e4fea1179f6c10c55045a3e25f90bfea3b3",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
