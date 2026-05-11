@@ -1,0 +1,19 @@
+README.md
+  s_0c81921be0364e::t_97a1c9cd08479c 1-79
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "6e41938a64561de916fb093a570a5cfbbba7c4f0",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
