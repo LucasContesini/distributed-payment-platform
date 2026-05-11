@@ -12,6 +12,9 @@ dependencies {
     implementation(libs.spring.boot.starter.validation)
     implementation(libs.spring.boot.starter.actuator)
     implementation(libs.micrometer.prometheus)
+    implementation(libs.micrometer.tracing.brave)
+    implementation(libs.zipkin.reporter.brave)
+    implementation(libs.logstash.logback.encoder)
 
     runtimeOnly(libs.postgresql)
     runtimeOnly(libs.flyway.core)

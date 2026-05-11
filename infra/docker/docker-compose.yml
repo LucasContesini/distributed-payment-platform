@@ -190,6 +190,7 @@ services:
       DB_USERNAME: finflow
       DB_PASSWORD: finflow
       KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      ZIPKIN_ENDPOINT: http://zipkin:9411/api/v2/spans
     depends_on:
       postgres:
         condition: service_healthy

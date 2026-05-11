@@ -12,6 +12,9 @@ dependencies {
     implementation(libs.spring.boot.starter.actuator)
     implementation(libs.jjwt.api)
     implementation(libs.micrometer.prometheus)
+    implementation(libs.micrometer.tracing.brave)
+    implementation(libs.zipkin.reporter.brave)
+    implementation(libs.logstash.logback.encoder)
 
     runtimeOnly(libs.jjwt.impl)
     runtimeOnly(libs.jjwt.jackson)

@@ -1,0 +1,191 @@
+{
+  "title": "FinFlow — Payment Platform",
+  "uid": "finflow-main",
+  "schemaVersion": 38,
+  "version": 1,
+  "refresh": "30s",
+  "time": { "from": "now-1h", "to": "now" },
+  "tags": ["finflow", "payments", "kafka"],
+  "panels": [
+    {
+      "id": 1,
+      "type": "stat",
+      "title": "Payments Created (5m rate)",
+      "gridPos": { "h": 4, "w": 4, "x": 0, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "yellow", "value": 10 },
+            { "color": "red", "value": 50 }
+          ]}
+        }
+      },
+      "targets": [{ "datasource": { "type": "prometheus" }, "expr": "rate(finflow_payments_created_total[5m])", "legendFormat": "Created/s" }]
+    },
+    {
+      "id": 2,
+      "type": "stat",
+      "title": "Payments Approved (5m rate)",
+      "gridPos": { "h": 4, "w": 4, "x": 4, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "color": { "fixedColor": "green", "mode": "fixed" }
+        }
+      },
+      "targets": [{ "datasource": { "type": "prometheus" }, "expr": "rate(finflow_payments_approved_total[5m])", "legendFormat": "Approved/s" }]
+    },
+    {
+      "id": 3,
+      "type": "stat",
+      "title": "Payments Rejected (5m rate)",
+      "gridPos": { "h": 4, "w": 4, "x": 8, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "reqps",
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "red", "value": 0.01 }
+          ]}
+        }
+      },
+      "targets": [{ "datasource": { "type": "prometheus" }, "expr": "sum(rate(finflow_payments_rejected_total[5m]))", "legendFormat": "Rejected/s" }]
+    },
+    {
+      "id": 4,
+      "type": "stat",
+      "title": "Fraud Rejection Rate",
+      "gridPos": { "h": 4, "w": 4, "x": 12, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "percentunit",
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "yellow", "value": 0.05 },
+            { "color": "red", "value": 0.20 }
+          ]}
+        }
+      },
+      "targets": [{
+        "datasource": { "type": "prometheus" },
+        "expr": "rate(finflow_fraud_analyses_total{decision='REJECTED'}[5m]) / rate(finflow_fraud_analyses_total[5m])",
+        "legendFormat": "Rejection Rate"
+      }]
+    },
+    {
+      "id": 5,
+      "type": "stat",
+      "title": "Outbox Pending Events",
+      "gridPos": { "h": 4, "w": 4, "x": 16, "y": 0 },
+      "options": { "reduceOptions": { "calcs": ["lastNotNull"] }, "colorMode": "background" },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "yellow", "value": 100 },
+            { "color": "red", "value": 1000 }
+          ]}
+        }
+      },
+      "targets": [{ "datasource": { "type": "prometheus" }, "expr": "finflow_outbox_pending_events", "legendFormat": "Pending" }]
+    },
+    {
+      "id": 6,
+      "type": "timeseries",
+      "title": "Payment Funnel — Rate Over Time",
+      "gridPos": { "h": 8, "w": 12, "x": 0, "y": 4 },
+      "fieldConfig": { "defaults": { "unit": "reqps" } },
+      "options": { "tooltip": { "mode": "multi" } },
+      "targets": [
+        { "datasource": { "type": "prometheus" }, "expr": "rate(finflow_payments_created_total[2m])", "legendFormat": "Created" },
+        { "datasource": { "type": "prometheus" }, "expr": "rate(finflow_payments_approved_total[2m])", "legendFormat": "Approved" },
+        { "datasource": { "type": "prometheus" }, "expr": "sum(rate(finflow_payments_rejected_total[2m]))", "legendFormat": "Rejected" }
+      ]
+    },
+    {
+      "id": 7,
+      "type": "timeseries",
+      "title": "HTTP Request Latency P95 — per Service",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 4 },
+      "fieldConfig": { "defaults": { "unit": "s" } },
+      "targets": [
+        { "datasource": { "type": "prometheus" }, "expr": "histogram_quantile(0.95, sum by(le, application) (rate(http_server_requests_seconds_bucket{application='auth-service'}[5m])))", "legendFormat": "auth-service p95" },
+        { "datasource": { "type": "prometheus" }, "expr": "histogram_quantile(0.95, sum by(le, application) (rate(http_server_requests_seconds_bucket{application='payment-service'}[5m])))", "legendFormat": "payment-service p95" },
+        { "datasource": { "type": "prometheus" }, "expr": "histogram_quantile(0.95, sum by(le, application) (rate(http_server_requests_seconds_bucket{application='wallet-service'}[5m])))", "legendFormat": "wallet-service p95" },
+        { "datasource": { "type": "prometheus" }, "expr": "histogram_quantile(0.95, sum by(le, application) (rate(http_server_requests_seconds_bucket{application='api-gateway'}[5m])))", "legendFormat": "api-gateway p95" }
+      ]
+    },
+    {
+      "id": 8,
+      "type": "piechart",
+      "title": "Fraud Analysis — Decision Distribution",
+      "gridPos": { "h": 8, "w": 6, "x": 0, "y": 12 },
+      "options": { "pieType": "pie", "displayLabels": ["name", "percent"] },
+      "targets": [{
+        "datasource": { "type": "prometheus" },
+        "expr": "sum by(decision) (finflow_fraud_analyses_total)",
+        "legendFormat": "{{decision}}"
+      }]
+    },
+    {
+      "id": 9,
+      "type": "piechart",
+      "title": "Payment Rejection — Reason Breakdown",
+      "gridPos": { "h": 8, "w": 6, "x": 6, "y": 12 },
+      "options": { "pieType": "pie", "displayLabels": ["name", "percent"] },
+      "targets": [{
+        "datasource": { "type": "prometheus" },
+        "expr": "sum by(reason) (finflow_payments_rejected_total)",
+        "legendFormat": "{{reason}}"
+      }]
+    },
+    {
+      "id": 10,
+      "type": "timeseries",
+      "title": "JVM Heap Usage — per Service",
+      "gridPos": { "h": 8, "w": 12, "x": 12, "y": 12 },
+      "fieldConfig": { "defaults": { "unit": "bytes" } },
+      "targets": [
+        { "datasource": { "type": "prometheus" }, "expr": "jvm_memory_used_bytes{area='heap', application='payment-service'}", "legendFormat": "payment-service" },
+        { "datasource": { "type": "prometheus" }, "expr": "jvm_memory_used_bytes{area='heap', application='auth-service'}", "legendFormat": "auth-service" },
+        { "datasource": { "type": "prometheus" }, "expr": "jvm_memory_used_bytes{area='heap', application='wallet-service'}", "legendFormat": "wallet-service" },
+        { "datasource": { "type": "prometheus" }, "expr": "jvm_memory_used_bytes{area='heap', application='fraud-service'}", "legendFormat": "fraud-service" }
+      ]
+    },
+    {
+      "id": 11,
+      "type": "timeseries",
+      "title": "Outbox Pending Events Over Time",
+      "gridPos": { "h": 6, "w": 12, "x": 0, "y": 20 },
+      "fieldConfig": {
+        "defaults": {
+          "unit": "short",
+          "thresholds": { "mode": "absolute", "steps": [
+            { "color": "green", "value": null },
+            { "color": "red", "value": 500 }
+          ]}
+        }
+      },
+      "targets": [{ "datasource": { "type": "prometheus" }, "expr": "finflow_outbox_pending_events", "legendFormat": "Pending Outbox Events" }]
+    },
+    {
+      "id": 12,
+      "type": "timeseries",
+      "title": "HTTP Error Rate — 5xx per Service",
+      "gridPos": { "h": 6, "w": 12, "x": 12, "y": 20 },
+      "fieldConfig": { "defaults": { "unit": "reqps", "color": { "fixedColor": "red", "mode": "fixed" } } },
+      "targets": [
+        { "datasource": { "type": "prometheus" }, "expr": "sum by(application) (rate(http_server_requests_seconds_count{status=~'5..', application='payment-service'}[5m]))", "legendFormat": "payment-service 5xx" },
+        { "datasource": { "type": "prometheus" }, "expr": "sum by(application) (rate(http_server_requests_seconds_count{status=~'5..', application='auth-service'}[5m]))", "legendFormat": "auth-service 5xx" },
+        { "datasource": { "type": "prometheus" }, "expr": "sum by(application) (rate(http_server_requests_seconds_count{status=~'5..', application='wallet-service'}[5m]))", "legendFormat": "wallet-service 5xx" }
+      ]
+    }
+  ]
+}

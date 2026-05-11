@@ -14,6 +14,7 @@ import com.finflow.payment.domain.outbox.OutboxEventRepository;
 import com.finflow.payment.domain.payment.Payment;
 import com.finflow.payment.domain.payment.PaymentRepository;
 import com.finflow.payment.infrastructure.client.WalletServiceClient;
+import com.finflow.payment.infrastructure.metrics.PaymentMetrics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -32,16 +33,19 @@ public class PaymentApplicationService {
     private final OutboxEventRepository outboxRepository;
     private final WalletServiceClient walletClient;
     private final ObjectMapper objectMapper;
+    private final PaymentMetrics metrics;
 
     public PaymentApplicationService(
             PaymentRepository paymentRepository,
             OutboxEventRepository outboxRepository,
             WalletServiceClient walletClient,
-            ObjectMapper objectMapper) {
+            ObjectMapper objectMapper,
+            PaymentMetrics metrics) {
         this.paymentRepository = paymentRepository;
         this.outboxRepository = outboxRepository;
         this.walletClient = walletClient;
         this.objectMapper = objectMapper;
+        this.metrics = metrics;
     }
 
     public Payment createPayment(CreatePaymentCommand command) {
@@ -66,6 +70,7 @@ public class PaymentApplicationService {
                 paymentRepository.save(payment);
                 enqueue(payment.getId(), "payment.approved", "payment-approved",
                         new PaymentApprovedEvent(UUID.randomUUID(), Instant.now(), payment.getId(), payment.getPayerId()));
+                metrics.recordApproved();
                 log.info("paymentId={} status=APPROVED", payment.getId());
             }
             case REJECTED -> {
@@ -74,6 +79,7 @@ public class PaymentApplicationService {
                 paymentRepository.save(payment);
                 enqueue(payment.getId(), "payment.rejected", "payment-rejected",
                         new PaymentRejectedEvent(UUID.randomUUID(), Instant.now(), payment.getId(), event.reason()));
+                metrics.recordRejected("fraud");
                 log.info("paymentId={} status=REJECTED reason={}", payment.getId(), event.reason());
             }
         }
@@ -85,6 +91,7 @@ public class PaymentApplicationService {
                 command.amount(), command.currency(),
                 command.idempotencyKey());
         paymentRepository.save(payment);
+        metrics.recordCreated();
 
         try {
             walletClient.reserve(payment.getId(), payment.getPayerId(), payment.getAmount(), payment.getCurrency());
@@ -99,6 +106,7 @@ public class PaymentApplicationService {
             paymentRepository.save(payment);
             enqueue(payment.getId(), "payment.rejected", "payment-rejected",
                     new PaymentRejectedEvent(UUID.randomUUID(), Instant.now(), payment.getId(), "Insufficient funds"));
+            metrics.recordRejected("insufficient_funds");
             log.info("paymentId={} status=REJECTED reason=insufficient_funds", payment.getId());
         }
 
