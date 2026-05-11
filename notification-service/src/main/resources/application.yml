@@ -1,30 +1,30 @@
 spring:
   application:
-    name: payment-service
+    name: notification-service
   datasource:
     url: ${DB_URL:jdbc:postgresql://localhost:5432/finflow}
     username: ${DB_USERNAME:finflow}
     password: ${DB_PASSWORD:finflow}
     hikari:
-      pool-name: payment-db-pool
-      maximum-pool-size: 10
-      minimum-idle: 2
+      pool-name: notification-db-pool
+      maximum-pool-size: 5
+      minimum-idle: 1
   jpa:
     hibernate:
       ddl-auto: validate
     open-in-view: false
     properties:
       hibernate:
-        default_schema: payment
+        default_schema: notification
   flyway:
-    schemas: payment
-    default-schema: payment
+    schemas: notification
+    default-schema: notification
     baseline-on-migrate: true
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
 
 server:
-  port: ${SERVER_PORT:8082}
+  port: ${SERVER_PORT:8085}
 
 management:
   endpoints:
@@ -38,12 +38,6 @@ management:
     export:
       prometheus:
         enabled: true
-
-clients:
-  wallet-service:
-    url: ${WALLET_SERVICE_URL:http://localhost:8083}
-    connect-timeout: ${WALLET_CONNECT_TIMEOUT:5s}
-    read-timeout: ${WALLET_READ_TIMEOUT:10s}
 
 logging:
   level:

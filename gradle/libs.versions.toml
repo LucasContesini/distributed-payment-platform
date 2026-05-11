@@ -32,6 +32,10 @@ postgresql                       = { module = "org.postgresql:postgresql" }
 flyway-core                      = { module = "org.flywaydb:flyway-core",                 version.ref = "flyway" }
 flyway-postgresql                = { module = "org.flywaydb:flyway-database-postgresql",  version.ref = "flyway" }
 
+# Messaging
+spring-kafka                     = { module = "org.springframework.kafka:spring-kafka" }
+spring-kafka-test                = { module = "org.springframework.kafka:spring-kafka-test" }
+
 # Observability
 micrometer-prometheus            = { module = "io.micrometer:micrometer-registry-prometheus" }
 
