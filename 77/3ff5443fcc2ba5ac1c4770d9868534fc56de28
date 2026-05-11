@@ -1,0 +1,56 @@
+wallet-service/src/main/java/com/finflow/wallet/application/WalletApplicationService.java
+  s_0c81921be0364e::t_c9738b43ff5f7a 46-50,62-66,78-82
+notification-service/src/main/java/com/finflow/notification/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_03d9e3f6d29140 19
+  s_0c81921be0364e::t_f193cb95819c36 59-61
+  s_0c81921be0364e::t_55f715de99d077 81-83
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_b36d1ba5928b2e 61-63
+  s_0c81921be0364e::t_b51eadd444057f 18
+payment-service/src/main/java/com/finflow/payment/application/PaymentApplicationService.java
+  s_0c81921be0364e::t_aa7ddeb44445a8 3-4,6-8,12-13,22,32,34,38,40,42,44,67-68,75-76,93-96,100-101,107-113
+payment-service/src/main/java/com/finflow/payment/domain/outbox/OutboxEvent.java
+  s_0c81921be0364e::t_68670400994ed1 1-62
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/WalletEntryRepositoryAdapter.java
+  s_0c81921be0364e::t_7f682fe56db2a7 3,8-9,23-26
+payment-service/src/main/java/com/finflow/payment/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_810eaf98a1ab79 18
+  s_0c81921be0364e::t_497cef4d60b12b 63-65
+payment-service/src/main/resources/db/migration/V2__create_outbox_events_table.sql
+  s_0c81921be0364e::t_da5f88055c7d78 1-14
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/WalletEntryRepository.java
+  s_0c81921be0364e::t_2c83432498da27 3-4,7
+payment-service/src/main/java/com/finflow/payment/infrastructure/outbox/OutboxRelayService.java
+  s_0c81921be0364e::t_d8c2518e97a6f7 1-67
+payment-service/src/test/java/com/finflow/payment/infrastructure/outbox/OutboxRelayServiceTest.java
+  s_0c81921be0364e::t_f820224f7a1172 1-91
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/OutboxEventRepositoryAdapter.java
+  s_0c81921be0364e::t_96268ddd5422f9 1-27
+README.md
+  s_0c81921be0364e::t_67b2653b37be7a 234
+  s_0c81921be0364e::t_60eb6b450e1223 242
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/SpringDataWalletEntryRepository.java
+  s_0c81921be0364e::t_40c824b945fc7b 3,9-11
+payment-service/src/main/java/com/finflow/payment/PaymentServiceApplication.java
+  s_0c81921be0364e::t_1d6ef1411e0476 6,10
+payment-service/src/main/java/com/finflow/payment/domain/outbox/OutboxEventRepository.java
+  s_0c81921be0364e::t_2fbbe898ece670 1-8
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/SpringDataOutboxEventRepository.java
+  s_0c81921be0364e::t_cef5176e3edbb4 1-21
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "773ff5443fcc2ba5ac1c4770d9868534fc56de28",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "unknown"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
