@@ -1,0 +1,41 @@
+payment-service/src/main/java/com/finflow/payment/infrastructure/metrics/OutboxMetrics.java
+  s_0c81921be0364e::t_bc6c59189fff6d 1-17
+infra/monitoring/grafana/provisioning/dashboards/finflow-dashboard.json
+  s_0c81921be0364e::t_66eee01e164f0c 1-191
+payment-service/src/main/java/com/finflow/payment/application/PaymentApplicationService.java
+  s_0c81921be0364e::t_bd31a3edd0e49e 36,42-43,48
+  s_0c81921be0364e::t_cd831d7190dce1 73,82
+  s_0c81921be0364e::t_1fe5487b6c0551 17
+  s_0c81921be0364e::t_4c01eb3beea945 109
+  s_0c81921be0364e::t_bf135eed9dfba3 94
+README.md
+  s_0c81921be0364e::t_a268f95361b964 235
+  s_0c81921be0364e::t_00e19a9037dcd3 242
+gradle/libs.versions.toml
+  s_0c81921be0364e::t_b8f3cc0a583605 8
+  s_0c81921be0364e::t_c7d76906986fa1 42-44
+fraud-service/src/main/java/com/finflow/fraud/application/FraudAnalysisService.java
+  s_0c81921be0364e::t_050dd1bac37ded 7,25,27,30,48
+payment-service/src/main/java/com/finflow/payment/infrastructure/metrics/PaymentMetrics.java
+  s_0c81921be0364e::t_74270b7c970993 1-39
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/SpringDataOutboxEventRepository.java
+  s_0c81921be0364e::t_1e0417c580fc01 13-14
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/metrics/FraudMetrics.java
+  s_0c81921be0364e::t_a7ea8bdfcda37c 1-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "f2a22b570a836cce01f657267e09a740f75066ab",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "unknown"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
