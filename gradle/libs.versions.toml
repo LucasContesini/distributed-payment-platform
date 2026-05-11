@@ -1,0 +1,46 @@
+[versions]
+spring-boot = "3.4.1"
+spring-cloud = "2024.0.0"
+spring-dependency-management = "1.1.7"
+jjwt = "0.12.6"
+testcontainers = "1.20.4"
+flyway = "10.21.0"
+
+[libraries]
+# Spring Boot
+spring-boot-starter-web          = { module = "org.springframework.boot:spring-boot-starter-web" }
+spring-boot-starter-webflux      = { module = "org.springframework.boot:spring-boot-starter-webflux" }
+spring-boot-starter-data-jpa     = { module = "org.springframework.boot:spring-boot-starter-data-jpa" }
+spring-boot-starter-data-redis   = { module = "org.springframework.boot:spring-boot-starter-data-redis" }
+spring-boot-starter-security     = { module = "org.springframework.boot:spring-boot-starter-security" }
+spring-boot-starter-validation   = { module = "org.springframework.boot:spring-boot-starter-validation" }
+spring-boot-starter-actuator     = { module = "org.springframework.boot:spring-boot-starter-actuator" }
+spring-boot-starter-test         = { module = "org.springframework.boot:spring-boot-starter-test" }
+
+# Spring Cloud
+spring-cloud-bom                 = { module = "org.springframework.cloud:spring-cloud-dependencies", version.ref = "spring-cloud" }
+spring-cloud-gateway             = { module = "org.springframework.cloud:spring-cloud-starter-gateway" }
+
+# Security
+spring-security-test             = { module = "org.springframework.security:spring-security-test" }
+jjwt-api                         = { module = "io.jsonwebtoken:jjwt-api",     version.ref = "jjwt" }
+jjwt-impl                        = { module = "io.jsonwebtoken:jjwt-impl",    version.ref = "jjwt" }
+jjwt-jackson                     = { module = "io.jsonwebtoken:jjwt-jackson", version.ref = "jjwt" }
+
+# Database
+postgresql                       = { module = "org.postgresql:postgresql" }
+flyway-core                      = { module = "org.flywaydb:flyway-core",                 version.ref = "flyway" }
+flyway-postgresql                = { module = "org.flywaydb:flyway-database-postgresql",  version.ref = "flyway" }
+
+# Observability
+micrometer-prometheus            = { module = "io.micrometer:micrometer-registry-prometheus" }
+
+# Testing
+testcontainers-bom               = { module = "org.testcontainers:testcontainers-bom",   version.ref = "testcontainers" }
+testcontainers-junit-jupiter     = { module = "org.testcontainers:junit-jupiter" }
+testcontainers-postgresql        = { module = "org.testcontainers:postgresql" }
+testcontainers-kafka             = { module = "org.testcontainers:kafka" }
+
+[plugins]
+spring-boot                      = { id = "org.springframework.boot",          version.ref = "spring-boot" }
+spring-dependency-management     = { id = "io.spring.dependency-management",   version.ref = "spring-dependency-management" }

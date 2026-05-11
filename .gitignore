@@ -1,0 +1,30 @@
+# Gradle
+.gradle/
+**/build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+gradle-app.setting
+!gradle/wrapper/gradle-wrapper.jar
+!**/gradle/wrapper/gradle-wrapper.jar
+
+# IDE
+.idea/
+*.iws
+*.iml
+*.ipr
+.vscode/
+.DS_Store
+
+# Spring Boot
+*.log
+logs/
+
+# Secrets
+.env
+*.env.local
+
+# Docker
+.docker/
+
+# OS
+Thumbs.db
