@@ -1,0 +1,100 @@
+fraud-service/src/main/java/com/finflow/fraud/domain/analysis/FraudDecision.java
+  s_0c81921be0364e::t_6d4f78c737fa2c 1-6
+notification-service/src/main/java/com/finflow/notification/domain/notification/NotificationType.java
+  s_0c81921be0364e::t_108fcf8ada1548 1-7
+gradle/libs.versions.toml
+  s_0c81921be0364e::t_8fed0bff164275 35-38
+fraud-service/src/test/java/com/finflow/fraud/application/FraudAnalysisServiceTest.java
+  s_0c81921be0364e::t_1df421292a34b8 1-75
+notification-service/src/main/java/com/finflow/notification/application/NotificationService.java
+  s_0c81921be0364e::t_a96638915aa24e 1-34
+payment-service/build.gradle.kts
+  s_0c81921be0364e::t_7dc0e82b013796 14,22,26
+infra/docker/docker-compose.yml
+  s_0c81921be0364e::t_03c1894e23644c 165-198
+notification-service/src/main/java/com/finflow/notification/domain/notification/NotificationLogRepository.java
+  s_0c81921be0364e::t_4a496ca5576e7b 1-5
+notification-service/src/main/java/com/finflow/notification/infrastructure/persistence/NotificationLogRepositoryAdapter.java
+  s_0c81921be0364e::t_92685ebac5efac 1-20
+payment-service/src/main/java/com/finflow/payment/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_c1758fec5ecd56 1-70
+payment-service/src/main/java/com/finflow/payment/infrastructure/kafka/PaymentEventPublisher.java
+  s_0c81921be0364e::t_6457d90c81882e 1-57
+notification-service/src/main/java/com/finflow/notification/domain/notification/NotificationLog.java
+  s_0c81921be0364e::t_3c4b75aa1cd8dd 1-50
+fraud-service/src/main/java/com/finflow/fraud/FraudServiceApplication.java
+  s_0c81921be0364e::t_a78c095b63bda6 1-14
+notification-service/build.gradle.kts
+  s_0c81921be0364e::t_abc09c34227f92 11-12,14,17-20,22-25
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/kafka/FraudAnalysisRequestedConsumer.java
+  s_0c81921be0364e::t_a206c7871e5151 1-32
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/config/SecurityConfig.java
+  s_0c81921be0364e::t_317710c2a3f117 1-21
+notification-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_1938b02faefba5 1-44
+notification-service/Dockerfile
+  s_0c81921be0364e::t_e8264fff44fd3b 1-17
+fraud-service/src/main/java/com/finflow/fraud/application/FraudAnalysisService.java
+  s_0c81921be0364e::t_79ae8a1661185f 1-55
+notification-service/src/main/java/com/finflow/notification/NotificationServiceApplication.java
+  s_0c81921be0364e::t_91b22092c82a13 1-14
+notification-service/src/main/java/com/finflow/notification/infrastructure/persistence/SpringDataNotificationLogRepository.java
+  s_0c81921be0364e::t_262e44b31f4efe 1-8
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_46a09457352815 1-68
+fraud-service/build.gradle.kts
+  s_0c81921be0364e::t_4b5c4c5429ea7e 12,14,22-26
+payment-service/src/main/java/com/finflow/payment/infrastructure/kafka/FraudAnalysisCompletedConsumer.java
+  s_0c81921be0364e::t_929befc2c7b7d0 1-32
+fraud-service/src/main/java/com/finflow/fraud/domain/analysis/FraudAnalysisRepository.java
+  s_0c81921be0364e::t_ff109ea40f2bcf 1-9
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/kafka/FraudEventPublisher.java
+  s_0c81921be0364e::t_78e3bc768ca3b0 1-37
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/persistence/FraudAnalysisRepositoryAdapter.java
+  s_0c81921be0364e::t_841721912d73ed 1-28
+fraud-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_4fdd47295d9f59 1-44
+notification-service/src/main/resources/db/migration/V1__create_notification_logs_table.sql
+  s_0c81921be0364e::t_a66b604e1092ec 1-12
+notification-service/src/test/java/com/finflow/notification/application/NotificationServiceTest.java
+  s_0c81921be0364e::t_eac4e02b452fb3 1-54
+payment-service/src/main/java/com/finflow/payment/application/PaymentApplicationService.java
+  s_0c81921be0364e::t_0ff98276025d04 3,6,10,26,28-31,34,45-67,72-74,80-82,85-86,90
+notification-service/src/main/java/com/finflow/notification/infrastructure/config/SecurityConfig.java
+  s_0c81921be0364e::t_ef7884813d6deb 1-21
+fraud-service/Dockerfile
+  s_0c81921be0364e::t_3db9b2ddf3a20b 1-17
+notification-service/src/main/java/com/finflow/notification/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_b477c8c92bee41 1-82
+notification-service/src/main/java/com/finflow/notification/infrastructure/kafka/PaymentRejectedConsumer.java
+  s_0c81921be0364e::t_6c549c5f20c0f5 1-32
+notification-service/src/main/java/com/finflow/notification/infrastructure/kafka/PaymentApprovedConsumer.java
+  s_0c81921be0364e::t_93e1865396c938 1-32
+fraud-service/src/main/resources/db/migration/V1__create_fraud_analyses_table.sql
+  s_0c81921be0364e::t_6ed238b51cca57 1-13
+payment-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_e77c098367c800 23-24
+fraud-service/src/main/java/com/finflow/fraud/infrastructure/persistence/SpringDataFraudAnalysisRepository.java
+  s_0c81921be0364e::t_965f96d2f31e6b 1-11
+README.md
+  s_0c81921be0364e::t_7ebdeb1fbdc2cd 233
+  s_0c81921be0364e::t_315a646ce2c897 242
+fraud-service/src/main/java/com/finflow/fraud/domain/analysis/FraudAnalysis.java
+  s_0c81921be0364e::t_e3c62497b22767 1-56
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "be94ee6c7b95fbde8961de81c80644b5c8f872ef",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
