@@ -9,6 +9,7 @@ dependencies {
     implementation(project(":shared-libs:common-events"))
     implementation(libs.spring.boot.starter.web)
     implementation(libs.spring.boot.starter.data.jpa)
+    implementation(libs.spring.boot.starter.validation)
     implementation(libs.spring.boot.starter.actuator)
     implementation(libs.micrometer.prometheus)
 
@@ -17,4 +18,7 @@ dependencies {
     runtimeOnly(libs.flyway.postgresql)
 
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(platform(libs.testcontainers.bom))
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.postgresql)
 }

@@ -229,7 +229,7 @@ distributed-payment-platform/
 ## Roadmap
 
 - [x] Phase 1 — Infrastructure, API Gateway, Auth Service
-- [ ] Phase 2 — Payment Service, Wallet Service (synchronous flow)
+- [x] Phase 2 — Payment Service, Wallet Service (synchronous flow)
 - [ ] Phase 3 — Kafka async pipeline: Fraud, Notification, Audit
 - [ ] Phase 4 — Retries, DLQ, Outbox Pattern, Idempotency
 - [ ] Phase 5 — OpenTelemetry, Prometheus metrics, Grafana dashboards
@@ -239,4 +239,4 @@ distributed-payment-platform/
 
 ## Status
 
-🚧 Phase 1 complete — infrastructure, gateway, and authentication operational.
+🚧 Phase 2 complete — payment orchestration and wallet balance management with pessimistic locking operational.

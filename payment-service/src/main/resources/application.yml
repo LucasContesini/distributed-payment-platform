@@ -1,0 +1,48 @@
+spring:
+  application:
+    name: payment-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/finflow}
+    username: ${DB_USERNAME:finflow}
+    password: ${DB_PASSWORD:finflow}
+    hikari:
+      pool-name: payment-db-pool
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: payment
+  flyway:
+    schemas: payment
+    default-schema: payment
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT:8082}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+clients:
+  wallet-service:
+    url: ${WALLET_SERVICE_URL:http://localhost:8083}
+    connect-timeout: ${WALLET_CONNECT_TIMEOUT:5s}
+    read-timeout: ${WALLET_READ_TIMEOUT:10s}
+
+logging:
+  level:
+    com.finflow: INFO

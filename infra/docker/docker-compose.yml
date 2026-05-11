@@ -128,6 +128,37 @@ services:
       postgres:
         condition: service_healthy
 
+  payment-service:
+    build:
+      context: ../..
+      dockerfile: payment-service/Dockerfile
+    ports:
+      - "8082:8082"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/finflow
+      DB_USERNAME: finflow
+      DB_PASSWORD: finflow
+      WALLET_SERVICE_URL: http://wallet-service:8083
+    depends_on:
+      postgres:
+        condition: service_healthy
+      wallet-service:
+        condition: service_started
+
+  wallet-service:
+    build:
+      context: ../..
+      dockerfile: wallet-service/Dockerfile
+    ports:
+      - "8083:8083"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/finflow
+      DB_USERNAME: finflow
+      DB_PASSWORD: finflow
+    depends_on:
+      postgres:
+        condition: service_healthy
+
 volumes:
   postgres_data:
   redis_data:

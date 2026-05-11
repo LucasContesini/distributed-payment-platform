@@ -1,0 +1,42 @@
+spring:
+  application:
+    name: wallet-service
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/finflow}
+    username: ${DB_USERNAME:finflow}
+    password: ${DB_PASSWORD:finflow}
+    hikari:
+      pool-name: wallet-db-pool
+      maximum-pool-size: 10
+      minimum-idle: 2
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        default_schema: wallet
+  flyway:
+    schemas: wallet
+    default-schema: wallet
+    baseline-on-migrate: true
+
+server:
+  port: ${SERVER_PORT:8083}
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus,metrics
+  endpoint:
+    health:
+      show-details: always
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+
+logging:
+  level:
+    com.finflow: INFO
