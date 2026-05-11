@@ -139,11 +139,14 @@ services:
       DB_USERNAME: finflow
       DB_PASSWORD: finflow
       WALLET_SERVICE_URL: http://wallet-service:8083
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
     depends_on:
       postgres:
         condition: service_healthy
       wallet-service:
         condition: service_started
+      kafka:
+        condition: service_healthy
 
   wallet-service:
     build:
@@ -157,6 +160,40 @@ services:
       DB_PASSWORD: finflow
     depends_on:
       postgres:
+        condition: service_healthy
+
+  fraud-service:
+    build:
+      context: ../..
+      dockerfile: fraud-service/Dockerfile
+    ports:
+      - "8084:8084"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/finflow
+      DB_USERNAME: finflow
+      DB_PASSWORD: finflow
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
+  notification-service:
+    build:
+      context: ../..
+      dockerfile: notification-service/Dockerfile
+    ports:
+      - "8085:8085"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/finflow
+      DB_USERNAME: finflow
+      DB_PASSWORD: finflow
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
         condition: service_healthy
 
 volumes:
