@@ -43,6 +43,11 @@ public class WalletApplicationService {
     }
 
     public void reserve(ReserveBalanceCommand command) {
+        if (entryRepository.existsByPaymentIdAndType(command.paymentId(), EntryType.RESERVATION)) {
+            log.warn("paymentId={} RESERVATION already exists — skipping (idempotent)", command.paymentId());
+            return;
+        }
+
         var wallet = walletRepository.findByUserIdWithLock(command.userId())
                 .orElseThrow(() -> new WalletNotFoundException(command.userId()));
 
@@ -54,6 +59,11 @@ public class WalletApplicationService {
     }
 
     public void settle(SettlePaymentCommand command) {
+        if (entryRepository.existsByPaymentIdAndType(command.paymentId(), EntryType.SETTLEMENT)) {
+            log.warn("paymentId={} SETTLEMENT already exists — skipping (idempotent)", command.paymentId());
+            return;
+        }
+
         var wallet = walletRepository.findByUserIdWithLock(command.userId())
                 .orElseThrow(() -> new WalletNotFoundException(command.userId()));
 
@@ -65,6 +75,11 @@ public class WalletApplicationService {
     }
 
     public void release(ReleaseReservationCommand command) {
+        if (entryRepository.existsByPaymentIdAndType(command.paymentId(), EntryType.RELEASE)) {
+            log.warn("paymentId={} RELEASE already exists — skipping (idempotent)", command.paymentId());
+            return;
+        }
+
         var wallet = walletRepository.findByUserIdWithLock(command.userId())
                 .orElseThrow(() -> new WalletNotFoundException(command.userId()));
 

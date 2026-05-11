@@ -15,7 +15,7 @@ import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-import org.springframework.util.backoff.FixedBackOff;
+import org.springframework.util.backoff.ExponentialBackOff;
 
 import java.util.Map;
 
@@ -58,7 +58,9 @@ public class KafkaConfig {
 
         var recoverer = new DeadLetterPublishingRecoverer(kafkaTemplate,
                 (record, ex) -> new TopicPartition("fraud-analysis-requested.DLQ", 0));
-        var errorHandler = new DefaultErrorHandler(recoverer, new FixedBackOff(1000L, 3L));
+        var backoff = new ExponentialBackOff(1_000L, 2.0);
+        backoff.setMaxElapsedTime(8_000L);
+        var errorHandler = new DefaultErrorHandler(recoverer, backoff);
 
         var factory = new ConcurrentKafkaListenerContainerFactory<String, FraudAnalysisRequestedEvent>();
         factory.setConsumerFactory(fraudAnalysisRequestedConsumerFactory());

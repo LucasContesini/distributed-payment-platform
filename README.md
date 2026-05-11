@@ -231,7 +231,7 @@ distributed-payment-platform/
 - [x] Phase 1 — Infrastructure, API Gateway, Auth Service
 - [x] Phase 2 — Payment Service, Wallet Service (synchronous flow)
 - [x] Phase 3 — Kafka async pipeline: Fraud, Notification, Audit (fraud + notification)
-- [ ] Phase 4 — Retries, DLQ, Outbox Pattern, Idempotency
+- [x] Phase 4 — Transactional Outbox, Wallet Idempotency, ExponentialBackOff retry
 - [ ] Phase 5 — OpenTelemetry, Prometheus metrics, Grafana dashboards
 - [ ] Phase 6 — Documentation, Kubernetes manifests, CI/CD
 
@@ -239,4 +239,4 @@ distributed-payment-platform/
 
 ## Status
 
-🚧 Phase 3 complete — full choreography saga operational: payment → wallet (sync) → fraud analysis (Kafka async) → settlement/release → notifications.
+🚧 Phase 4 complete — Transactional Outbox eliminates dual-write risk; wallet idempotency prevents double-charges; ExponentialBackOff (1s→2s→4s→DLQ) on all Kafka consumers.

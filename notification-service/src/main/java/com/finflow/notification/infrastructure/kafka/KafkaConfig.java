@@ -16,7 +16,7 @@ import org.springframework.kafka.listener.DeadLetterPublishingRecoverer;
 import org.springframework.kafka.listener.DefaultErrorHandler;
 import org.springframework.kafka.support.serializer.JsonDeserializer;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-import org.springframework.util.backoff.FixedBackOff;
+import org.springframework.util.backoff.ExponentialBackOff;
 
 import java.util.Map;
 
@@ -56,7 +56,9 @@ public class KafkaConfig {
                 (record, ex) -> new TopicPartition("payment-approved.DLQ", 0));
         var factory = new ConcurrentKafkaListenerContainerFactory<String, PaymentApprovedEvent>();
         factory.setConsumerFactory(consumerFactory);
-        factory.setCommonErrorHandler(new DefaultErrorHandler(recoverer, new FixedBackOff(1000L, 3L)));
+        var backoff1 = new ExponentialBackOff(1_000L, 2.0);
+        backoff1.setMaxElapsedTime(8_000L);
+        factory.setCommonErrorHandler(new DefaultErrorHandler(recoverer, backoff1));
         return factory;
     }
 
@@ -76,7 +78,9 @@ public class KafkaConfig {
                 (record, ex) -> new TopicPartition("payment-rejected.DLQ", 0));
         var factory = new ConcurrentKafkaListenerContainerFactory<String, PaymentRejectedEvent>();
         factory.setConsumerFactory(consumerFactory);
-        factory.setCommonErrorHandler(new DefaultErrorHandler(recoverer, new FixedBackOff(1000L, 3L)));
+        var backoff2 = new ExponentialBackOff(1_000L, 2.0);
+        backoff2.setMaxElapsedTime(8_000L);
+        factory.setCommonErrorHandler(new DefaultErrorHandler(recoverer, backoff2));
         return factory;
     }
 }
