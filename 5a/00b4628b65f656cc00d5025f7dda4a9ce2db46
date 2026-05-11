@@ -1,0 +1,133 @@
+wallet-service/src/test/java/com/finflow/wallet/application/WalletApplicationServiceTest.java
+  s_0c81921be0364e::t_d80976dc1fcfba 1-92
+wallet-service/src/main/java/com/finflow/wallet/api/dto/InternalSettleRequest.java
+  s_0c81921be0364e::t_555460b25ffee5 1-12
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/SpringDataPaymentRepository.java
+  s_0c81921be0364e::t_0a3e098c79ce3d 1-11
+payment-service/src/test/java/com/finflow/payment/application/PaymentApplicationServiceTest.java
+  s_0c81921be0364e::t_72bde23b71e2aa 1-75
+wallet-service/src/main/java/com/finflow/wallet/api/WalletController.java
+  s_0c81921be0364e::t_865c4eae24319b 1-34
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/SpringDataWalletEntryRepository.java
+  s_0c81921be0364e::t_efeeb54ee1c031 1-8
+wallet-service/src/main/java/com/finflow/wallet/WalletServiceApplication.java
+  s_0c81921be0364e::t_3ad718fb55f1d8 1-14
+payment-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_ee0be472a97d49 1-48
+wallet-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_1a680d7ec74e09 1-42
+wallet-service/src/main/java/com/finflow/wallet/application/command/CreateWalletCommand.java
+  s_0c81921be0364e::t_10b25671998cb2 1-6
+README.md
+  s_0c81921be0364e::t_e87e1dc06d0e3d 232,242
+payment-service/src/main/java/com/finflow/payment/infrastructure/client/WalletServiceProperties.java
+  s_0c81921be0364e::t_1246b8259296e3 1-12
+infra/docker/docker-compose.yml
+  s_0c81921be0364e::t_a5ecdbbd4b0b37 131-161
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/config/SecurityConfig.java
+  s_0c81921be0364e::t_70c0e5c01f80ee 1-21
+wallet-service/src/main/java/com/finflow/wallet/application/command/SettlePaymentCommand.java
+  s_0c81921be0364e::t_c6aa73df01e8b0 1-6
+wallet-service/src/main/java/com/finflow/wallet/api/dto/InternalReserveRequest.java
+  s_0c81921be0364e::t_9f491f7d05171a 1-13
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/SpringDataWalletRepository.java
+  s_0c81921be0364e::t_b54fe8085dd17b 1-22
+wallet-service/src/main/java/com/finflow/wallet/api/dto/InternalReleaseRequest.java
+  s_0c81921be0364e::t_316906362471f7 1-12
+wallet-service/src/main/java/com/finflow/wallet/domain/exception/WalletAlreadyExistsException.java
+  s_0c81921be0364e::t_6827cb3f3e0576 1-12
+payment-service/src/main/java/com/finflow/payment/domain/exception/PaymentNotFoundException.java
+  s_0c81921be0364e::t_dced728ef21bf8 1-12
+payment-service/src/main/java/com/finflow/payment/infrastructure/client/WalletServiceClient.java
+  s_0c81921be0364e::t_2386b9d1ffd72f 1-62
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/PaymentRepositoryAdapter.java
+  s_0c81921be0364e::t_f75915476d0e59 1-33
+wallet-service/src/main/java/com/finflow/wallet/api/dto/CreateWalletRequest.java
+  s_0c81921be0364e::t_aaee19c9e21597 1-12
+payment-service/src/main/java/com/finflow/payment/application/command/CreatePaymentCommand.java
+  s_0c81921be0364e::t_6c6e1a0f535b2d 1-12
+wallet-service/src/main/java/com/finflow/wallet/application/command/ReserveBalanceCommand.java
+  s_0c81921be0364e::t_b01a1123aa3290 1-6
+payment-service/src/main/java/com/finflow/payment/PaymentServiceApplication.java
+  s_0c81921be0364e::t_747248bc71b9ad 1-14
+payment-service/src/main/java/com/finflow/payment/domain/payment/Payment.java
+  s_0c81921be0364e::t_f24f9d8e50b238 1-85
+payment-service/src/main/java/com/finflow/payment/api/PaymentController.java
+  s_0c81921be0364e::t_deb08fa93439ac 1-43
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/WalletEntry.java
+  s_0c81921be0364e::t_55f27d182b8ee7 1-51
+wallet-service/src/main/java/com/finflow/wallet/application/WalletApplicationService.java
+  s_0c81921be0364e::t_0b4ee2c28f5d88 1-77
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/WalletRepositoryAdapter.java
+  s_0c81921be0364e::t_8ecc169c34e392 1-38
+payment-service/src/main/java/com/finflow/payment/domain/exception/InsufficientFundsException.java
+  s_0c81921be0364e::t_5923c19b61a409 1-10
+payment-service/src/main/java/com/finflow/payment/api/dto/PaymentResponse.java
+  s_0c81921be0364e::t_bad70305b45a1f 1-36
+payment-service/src/main/java/com/finflow/payment/domain/exception/DuplicateIdempotencyKeyException.java
+  s_0c81921be0364e::t_7b425767ffdaa8 1-10
+payment-service/src/main/java/com/finflow/payment/infrastructure/config/SecurityConfig.java
+  s_0c81921be0364e::t_37645c72a7fa1f 1-23
+wallet-service/src/main/java/com/finflow/wallet/domain/exception/WalletNotFoundException.java
+  s_0c81921be0364e::t_b11bbdbe916ec2 1-12
+wallet-service/src/main/resources/db/migration/V2__create_wallet_entries_table.sql
+  s_0c81921be0364e::t_b3d6701211ca8f 1-12
+payment-service/Dockerfile
+  s_0c81921be0364e::t_e1d12d8f007049 1-17
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/WalletEntryRepository.java
+  s_0c81921be0364e::t_8f7ce31f2b8aee 1-5
+payment-service/src/main/java/com/finflow/payment/domain/payment/PaymentStatus.java
+  s_0c81921be0364e::t_614d33c3f32121 1-9
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/EntryType.java
+  s_0c81921be0364e::t_4476bd9521d4e5 1-7
+wallet-service/src/main/java/com/finflow/wallet/api/InternalWalletController.java
+  s_0c81921be0364e::t_9a2fcddf60eff7 1-44
+payment-service/src/main/java/com/finflow/payment/domain/payment/PaymentRepository.java
+  s_0c81921be0364e::t_e2062a60b8771b 1-10
+wallet-service/src/main/java/com/finflow/wallet/api/advice/GlobalExceptionHandler.java
+  s_0c81921be0364e::t_ca07511d7327e1 1-49
+wallet-service/src/main/java/com/finflow/wallet/domain/exception/InsufficientFundsException.java
+  s_0c81921be0364e::t_a4b0f0b7872bc7 1-12
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/Wallet.java
+  s_0c81921be0364e::t_f814f7793a4e75 1-82
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/persistence/WalletEntryRepositoryAdapter.java
+  s_0c81921be0364e::t_cb8882c3224fbc 1-20
+wallet-service/src/main/resources/db/migration/V1__create_wallets_table.sql
+  s_0c81921be0364e::t_86bbd107950eb2 1-16
+wallet-service/Dockerfile
+  s_0c81921be0364e::t_cf64d1a2d9629b 1-17
+wallet-service/build.gradle.kts
+  s_0c81921be0364e::t_a1fce4b58c4e04 12,21-23
+payment-service/src/main/java/com/finflow/payment/application/PaymentApplicationService.java
+  s_0c81921be0364e::t_bc9edade486d70 1-61
+payment-service/build.gradle.kts
+  s_0c81921be0364e::t_bf2abecc4da487 12
+wallet-service/src/main/java/com/finflow/wallet/api/dto/WalletResponse.java
+  s_0c81921be0364e::t_b93f68678b7df6 1-31
+payment-service/src/main/resources/db/migration/V1__create_payments_table.sql
+  s_0c81921be0364e::t_b2fc743bdbfec8 1-17
+payment-service/src/main/java/com/finflow/payment/api/dto/CreatePaymentRequest.java
+  s_0c81921be0364e::t_e8d22fa00e078f 1-13
+wallet-service/src/main/java/com/finflow/wallet/domain/wallet/WalletRepository.java
+  s_0c81921be0364e::t_31e89c6df14564 1-11
+payment-service/src/main/java/com/finflow/payment/api/advice/GlobalExceptionHandler.java
+  s_0c81921be0364e::t_680e6c05aa2114 1-43
+wallet-service/src/main/java/com/finflow/wallet/application/command/ReleaseReservationCommand.java
+  s_0c81921be0364e::t_f8f32b99a64fdc 1-6
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "5a00b4628b65f656cc00d5025f7dda4a9ce2db46",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
