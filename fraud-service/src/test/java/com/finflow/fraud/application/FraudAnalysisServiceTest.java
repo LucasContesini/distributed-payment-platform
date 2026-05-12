@@ -4,6 +4,7 @@ import com.finflow.fraud.domain.analysis.FraudAnalysis;
 import com.finflow.fraud.domain.analysis.FraudAnalysisRepository;
 import com.finflow.fraud.domain.analysis.FraudDecision;
 import com.finflow.fraud.infrastructure.kafka.FraudEventPublisher;
+import com.finflow.fraud.infrastructure.metrics.FraudMetrics;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
@@ -17,6 +18,7 @@ import java.util.UUID;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(MockitoExtension.class)
@@ -27,6 +29,9 @@ class FraudAnalysisServiceTest {
 
     @Mock
     private FraudEventPublisher eventPublisher;
+
+    @Mock
+    private FraudMetrics metrics;
 
     @InjectMocks
     private FraudAnalysisService fraudService;
@@ -44,8 +49,8 @@ class FraudAnalysisServiceTest {
         var captor = ArgumentCaptor.forClass(FraudAnalysis.class);
         verify(repository).save(captor.capture());
         assertThat(captor.getValue().getDecision()).isEqualTo(FraudDecision.APPROVED);
-
         verify(eventPublisher).publishFraudAnalysisCompleted(paymentId, FraudDecision.APPROVED, "All checks passed");
+        verify(metrics).recordAnalysis(FraudDecision.APPROVED);
     }
 
     @Test
@@ -58,8 +63,8 @@ class FraudAnalysisServiceTest {
         var captor = ArgumentCaptor.forClass(FraudAnalysis.class);
         verify(repository).save(captor.capture());
         assertThat(captor.getValue().getDecision()).isEqualTo(FraudDecision.REJECTED);
-
         verify(eventPublisher).publishFraudAnalysisCompleted(eq(paymentId), eq(FraudDecision.REJECTED), any());
+        verify(metrics).recordAnalysis(FraudDecision.REJECTED);
     }
 
     @Test
@@ -71,5 +76,6 @@ class FraudAnalysisServiceTest {
 
         verify(repository, never()).save(any());
         verifyNoInteractions(eventPublisher);
+        verifyNoInteractions(metrics);
     }
 }

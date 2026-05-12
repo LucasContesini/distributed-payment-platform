@@ -24,4 +24,9 @@ class OutboxEventRepositoryAdapter implements OutboxEventRepository {
     public List<OutboxEvent> findUnpublishedWithLock(int limit) {
         return delegate.findUnpublishedWithLock(limit);
     }
+
+    @Override
+    public long countUnpublished() {
+        return delegate.countByPublishedFalse();
+    }
 }

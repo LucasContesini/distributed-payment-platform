@@ -24,5 +24,6 @@ subprojects {
     tasks.withType<Test> {
         useJUnitPlatform()
         jvmArgs("-XX:+EnableDynamicAgentLoading")
+        environment("TESTCONTAINERS_RYUK_DISABLED", "true")
     }
 }
