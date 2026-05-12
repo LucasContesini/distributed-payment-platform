@@ -8,6 +8,8 @@ A production-grade distributed payment platform simulating a real-world fintech 
 
 ## Architecture
 
+![System Architecture](docs/images/readme-architecture.png)
+
 ```mermaid
 graph TB
     Client([Client])
@@ -95,6 +97,8 @@ graph TB
 
 ## Kafka Topics
 
+![Kafka Event Flow](docs/images/kafka-topics.png)
+
 | Topic | Partitions | Producer | Consumers |
 |---|---|---|---|
 | `fraud-analysis-requested` | 6 | payment-service | fraud-service |
@@ -108,6 +112,8 @@ Partition key: `paymentId` — guarantees ordering for all events belonging to t
 ---
 
 ## Payment Flow
+
+![Payment Sequence](docs/images/payment-happy-path.png)
 
 ```
 1.  POST /api/auth/login                 → access_token (JWT, 15m TTL)
@@ -215,6 +221,17 @@ distributed-payment-platform/
     ├── adr/                           # ADR-001 through ADR-005
     └── diagrams/                      # System architecture, payment sequence, Kafka flow
 ```
+
+---
+
+## Diagrams
+
+| Diagram | File |
+|---|---|
+| System Architecture | [docs/images/architecture.png](docs/images/architecture.png) |
+| Payment Sequence (happy path) | [docs/images/payment-happy-path.png](docs/images/payment-happy-path.png) |
+| Payment Rejection | [docs/images/payment-rejection.png](docs/images/payment-rejection.png) |
+| Kafka Event Flow | [docs/images/kafka-topics.png](docs/images/kafka-topics.png) |
 
 ---
 

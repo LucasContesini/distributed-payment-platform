@@ -1,0 +1,29 @@
+graph TB
+    Client([Client])
+
+    subgraph Ingress
+        GW[api-gateway :8080\nJWT · Rate Limiting · Routing]
+    end
+
+    subgraph Services
+        AS[auth-service :8081\nJWT · bcrypt]
+        PS[payment-service :8082\nSaga · Outbox]
+        WS[wallet-service :8083\nBalance · Locking]
+        FS[fraud-service :8084\nRisk Analysis]
+        NS[notification-service :8085\nEmail · Push]
+    end
+
+    subgraph Infrastructure
+        KF[(Apache Kafka\n6 topics + DLQs)]
+        PG[(PostgreSQL\n5 isolated schemas)]
+        RD[(Redis)]
+    end
+
+    Client -->|HTTPS| GW
+    GW --> AS & PS & WS
+    PS -->|HTTP sync| WS
+    PS -->|Outbox → Relay| KF
+    KF --> FS --> KF --> PS
+    PS --> KF --> NS
+    AS & PS & WS & FS & NS --- PG
+    GW --- RD

@@ -1,0 +1,23 @@
+sequenceDiagram
+    autonumber
+    actor Client
+    participant GW as api-gateway
+    participant PS as payment-service
+    participant WS as wallet-service
+    participant K as Kafka
+    participant NS as notification-service
+
+    Client->>GW: POST /api/payments {amount=999999}
+    GW->>PS: POST /payments
+    PS->>WS: POST /internal/wallets/reserve
+    WS->>WS: availableBalance < amount → throw InsufficientFundsException
+    WS-->>PS: 422 Unprocessable Entity
+    PS->>PS: WalletServiceClient maps 422 → InsufficientFundsException
+    PS->>PS: payment.reject("Insufficient funds")
+    PS->>PS: enqueue payment-rejected event to outbox
+    PS-->>GW: 202 Accepted {status=REJECTED, reason=Insufficient funds}
+    GW-->>Client: 202 Accepted
+
+    Note over PS: Outbox relay publishes payment-rejected
+    PS->>K: PRODUCE payment-rejected
+    K->>NS: CONSUME payment-rejected → INSERT notification_logs{PAYMENT_REJECTED}
