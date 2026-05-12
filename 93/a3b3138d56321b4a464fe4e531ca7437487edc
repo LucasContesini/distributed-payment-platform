@@ -1,0 +1,31 @@
+payment-service/src/main/java/com/finflow/payment/infrastructure/persistence/OutboxEventRepositoryAdapter.java
+  s_0c81921be0364e::t_82b5045d459d45 27-31
+fraud-service/src/test/java/com/finflow/fraud/application/FraudAnalysisServiceTest.java
+  s_0c81921be0364e::t_a54532ead1d68d 7,21,33-35,53,67,79
+payment-service/src/test/java/com/finflow/payment/application/PaymentApplicationServiceTest.java
+  s_0c81921be0364e::t_a788e9908e4a40 3-4,7,12-13,25,31-34,41-47,52,60-61,68,76-77,90-91
+build.gradle.kts
+  s_0c81921be0364e::t_d8977e1202d56c 27
+auth-service/src/test/resources/testcontainers.properties
+  s_0c81921be0364e::t_bb5beadd14f5bd 1
+payment-service/src/main/java/com/finflow/payment/infrastructure/metrics/OutboxMetrics.java
+  s_0c81921be0364e::t_2790451058e656 3,11-13
+payment-service/src/main/java/com/finflow/payment/domain/outbox/OutboxEventRepository.java
+  s_0c81921be0364e::t_04abf3b717127f 8
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "93a3b3138d56321b4a464fe4e531ca7437487edc",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
