@@ -1,0 +1,38 @@
+auth-service/src/main/java/com/finflow/auth/infrastructure/config/OpenApiConfig.java
+  s_0c81921be0364e::t_1a7809f8474264 1-28
+gradle/libs.versions.toml
+  s_0c81921be0364e::t_96e1a4a470cb50 46
+  s_0c81921be0364e::t_12a85b2fb82447 9
+docs/diagrams/system-architecture.md
+  s_0c81921be0364e::t_bd2e83565ae6f4 1-84
+.github/workflows/ci.yml
+  s_0c81921be0364e::t_38f77a7520bf5b 1-40
+docs/adr/ADR-005-observability-stack.md
+  s_0c81921be0364e::t_81038c533c5898 1-34
+docs/diagrams/kafka-event-flow.md
+  s_0c81921be0364e::t_ce0c28bcfd26d4 1-84
+payment-service/src/main/java/com/finflow/payment/infrastructure/config/OpenApiConfig.java
+  s_0c81921be0364e::t_e10f7a6bc4679b 1-29
+wallet-service/src/main/java/com/finflow/wallet/infrastructure/config/OpenApiConfig.java
+  s_0c81921be0364e::t_84ab00b00f9f36 1-29
+README.md
+  s_0c81921be0364e::t_6984b6246b92ed 5-6,11-40,43,45-59,75-76,78,85-92,98,102-103,106-107,113-121,129,132,135-136,140,143,146-157,159-161,163-166,177-179,190,192,201-207,209-210,212-213,215-216,229-243,249-254,258-272,280,282-284,290
+docs/diagrams/payment-sequence.md
+  s_0c81921be0364e::t_5d91ecaaee221f 1-89
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "81f82d94ab6460fd3132f1abdda3d7305626a5ce",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
