@@ -10,6 +10,8 @@ import java.util.UUID;
 
 interface SpringDataOutboxEventRepository extends JpaRepository<OutboxEvent, UUID> {
 
+    long countByPublishedFalse();
+
     @Query(value = """
             SELECT * FROM payment.outbox_events
             WHERE published = false

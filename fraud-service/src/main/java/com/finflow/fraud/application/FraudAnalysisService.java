@@ -4,6 +4,7 @@ import com.finflow.fraud.domain.analysis.FraudAnalysis;
 import com.finflow.fraud.domain.analysis.FraudAnalysisRepository;
 import com.finflow.fraud.domain.analysis.FraudDecision;
 import com.finflow.fraud.infrastructure.kafka.FraudEventPublisher;
+import com.finflow.fraud.infrastructure.metrics.FraudMetrics;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
@@ -17,15 +18,16 @@ import java.util.UUID;
 public class FraudAnalysisService {
 
     private static final Logger log = LoggerFactory.getLogger(FraudAnalysisService.class);
-
     private static final BigDecimal HIGH_VALUE_THRESHOLD = new BigDecimal("50000");
 
     private final FraudAnalysisRepository repository;
     private final FraudEventPublisher eventPublisher;
+    private final FraudMetrics metrics;
 
-    public FraudAnalysisService(FraudAnalysisRepository repository, FraudEventPublisher eventPublisher) {
+    public FraudAnalysisService(FraudAnalysisRepository repository, FraudEventPublisher eventPublisher, FraudMetrics metrics) {
         this.repository = repository;
         this.eventPublisher = eventPublisher;
+        this.metrics = metrics;
     }
 
     public void analyze(UUID paymentId, UUID payerId, BigDecimal amount, String currency) {
@@ -43,6 +45,7 @@ public class FraudAnalysisService {
         repository.save(analysis);
 
         eventPublisher.publishFraudAnalysisCompleted(paymentId, decision, reason);
+        metrics.recordAnalysis(decision);
         log.info("paymentId={} fraudDecision={} reason={}", paymentId, decision, reason);
     }
 

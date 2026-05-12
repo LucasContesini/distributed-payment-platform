@@ -45,6 +45,14 @@ clients:
     connect-timeout: ${WALLET_CONNECT_TIMEOUT:5s}
     read-timeout: ${WALLET_READ_TIMEOUT:10s}
 
+management:
+  zipkin:
+    tracing:
+      endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
+  tracing:
+    sampling:
+      probability: 1.0
+
 logging:
   level:
     com.finflow: INFO

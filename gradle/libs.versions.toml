@@ -5,6 +5,7 @@ spring-dependency-management = "1.1.7"
 jjwt = "0.12.6"
 testcontainers = "1.20.4"
 flyway = "10.21.0"
+logstash-logback = "7.4"
 
 [libraries]
 # Spring Boot
@@ -38,6 +39,9 @@ spring-kafka-test                = { module = "org.springframework.kafka:spring-
 
 # Observability
 micrometer-prometheus            = { module = "io.micrometer:micrometer-registry-prometheus" }
+micrometer-tracing-brave         = { module = "io.micrometer:micrometer-tracing-bridge-brave" }
+zipkin-reporter-brave            = { module = "io.zipkin.reporter2:zipkin-reporter-brave" }
+logstash-logback-encoder         = { module = "net.logstash.logback:logstash-logback-encoder", version.ref = "logstash-logback" }
 
 # Testing
 testcontainers-bom               = { module = "org.testcontainers:testcontainers-bom",   version.ref = "testcontainers" }

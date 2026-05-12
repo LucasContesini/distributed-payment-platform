@@ -232,11 +232,11 @@ distributed-payment-platform/
 - [x] Phase 2 — Payment Service, Wallet Service (synchronous flow)
 - [x] Phase 3 — Kafka async pipeline: Fraud, Notification, Audit (fraud + notification)
 - [x] Phase 4 — Transactional Outbox, Wallet Idempotency, ExponentialBackOff retry
-- [ ] Phase 5 — OpenTelemetry, Prometheus metrics, Grafana dashboards
+- [x] Phase 5 — OpenTelemetry tracing, Micrometer custom metrics, structured JSON logging, Grafana dashboards
 - [ ] Phase 6 — Documentation, Kubernetes manifests, CI/CD
 
 ---
 
 ## Status
 
-🚧 Phase 4 complete — Transactional Outbox eliminates dual-write risk; wallet idempotency prevents double-charges; ExponentialBackOff (1s→2s→4s→DLQ) on all Kafka consumers.
+🚧 Phase 5 complete — full observability stack: distributed tracing (Zipkin), custom Micrometer metrics, structured JSON logs (logstash-logback-encoder), and Grafana dashboard with 12 panels.
