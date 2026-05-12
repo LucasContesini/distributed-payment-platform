@@ -24,6 +24,7 @@ spring:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
 
 server:
+  shutdown: graceful
   port: ${SERVER_PORT:8082}
 
 management:
@@ -56,3 +57,7 @@ management:
 logging:
   level:
     com.finflow: INFO
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
