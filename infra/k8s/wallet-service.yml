@@ -1,0 +1,101 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: wallet-service
+  namespace: finflow
+  labels:
+    app: wallet-service
+    version: v1
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: wallet-service
+  template:
+    metadata:
+      labels:
+        app: wallet-service
+        version: v1
+    spec:
+      terminationGracePeriodSeconds: 40
+      containers:
+        - name: wallet-service
+          image: finflow/wallet-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8083
+              name: http
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgres-service:5432/finflow
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: finflow-secrets
+                  key: DB_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: finflow-config
+          resources:
+            requests:
+              memory: 256Mi
+              cpu: 150m
+            limits:
+              memory: 512Mi
+              cpu: 800m
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8083
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8083
+            initialDelaySeconds: 30
+            periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: wallet-service
+  namespace: finflow
+spec:
+  selector:
+    app: wallet-service
+  ports:
+    - port: 8083
+      targetPort: 8083
+      name: http
+---
+apiVersion: autoscaling/v2
+kind: HorizontalPodAutoscaler
+metadata:
+  name: wallet-service-hpa
+  namespace: finflow
+spec:
+  scaleTargetRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: wallet-service
+  minReplicas: 2
+  maxReplicas: 8
+  metrics:
+    - type: Resource
+      resource:
+        name: cpu
+        target:
+          type: Utilization
+          averageUtilization: 70
+---
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  name: wallet-service-pdb
+  namespace: finflow
+spec:
+  minAvailable: 2
+  selector:
+    matchLabels:
+      app: wallet-service

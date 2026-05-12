@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: finflow-config
+  namespace: finflow
+data:
+  DB_USERNAME: finflow
+  KAFKA_BOOTSTRAP_SERVERS: kafka-service:9092
+  REDIS_HOST: redis-service
+  REDIS_PORT: "6379"
+  AUTH_SERVICE_URL: http://auth-service:8081
+  PAYMENT_SERVICE_URL: http://payment-service:8082
+  WALLET_SERVICE_URL: http://wallet-service:8083
+  ZIPKIN_ENDPOINT: http://zipkin:9411/api/v2/spans

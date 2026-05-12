@@ -281,10 +281,10 @@ GitHub Actions runs on every push:
 - [x] Phase 4 — Transactional Outbox, Wallet Idempotency, ExponentialBackOff retry
 - [x] Phase 5 — OpenTelemetry tracing, Micrometer custom metrics, Grafana dashboards
 - [x] Phase 6 — GitHub Actions CI, OpenAPI/Swagger, Mermaid diagrams, graceful shutdown
-- [ ] Phase 7 — Kubernetes manifests, Terraform, Chaos engineering
+- [x] Phase 7 — Audit Service (immutable log) + Kubernetes manifests (HPA, PDB, Ingress)
 
 ---
 
 ## Status
 
-✅ All 6 phases complete. Production-ready local stack with full observability.
+✅ All 7 phases complete. Production-ready local stack with full observability and Kubernetes manifests.

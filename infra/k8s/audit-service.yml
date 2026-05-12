@@ -1,0 +1,70 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: audit-service
+  namespace: finflow
+  labels:
+    app: audit-service
+    version: v1
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: audit-service
+  template:
+    metadata:
+      labels:
+        app: audit-service
+        version: v1
+    spec:
+      terminationGracePeriodSeconds: 40
+      containers:
+        - name: audit-service
+          image: finflow/audit-service:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8086
+              name: http
+          env:
+            - name: DB_URL
+              value: jdbc:postgresql://postgres-service:5432/finflow
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: finflow-secrets
+                  key: DB_PASSWORD
+          envFrom:
+            - configMapRef:
+                name: finflow-config
+          resources:
+            requests:
+              memory: 192Mi
+              cpu: 100m
+            limits:
+              memory: 384Mi
+              cpu: 500m
+          readinessProbe:
+            httpGet:
+              path: /actuator/health/readiness
+              port: 8086
+            initialDelaySeconds: 20
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /actuator/health/liveness
+              port: 8086
+            initialDelaySeconds: 30
+            periodSeconds: 15
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: audit-service
+  namespace: finflow
+spec:
+  selector:
+    app: audit-service
+  ports:
+    - port: 8086
+      targetPort: 8086
+      name: http
