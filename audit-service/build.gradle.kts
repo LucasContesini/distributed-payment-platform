@@ -10,11 +10,19 @@ dependencies {
     implementation(libs.spring.boot.starter.web)
     implementation(libs.spring.boot.starter.data.jpa)
     implementation(libs.spring.boot.starter.actuator)
+    implementation(libs.spring.kafka)
     implementation(libs.micrometer.prometheus)
+    implementation(libs.micrometer.tracing.brave)
+    implementation(libs.zipkin.reporter.brave)
+    implementation(libs.logstash.logback.encoder)
 
     runtimeOnly(libs.postgresql)
     runtimeOnly(libs.flyway.core)
     runtimeOnly(libs.flyway.postgresql)
 
     testImplementation(libs.spring.boot.starter.test)
+    testImplementation(libs.spring.kafka.test)
+    testImplementation(platform(libs.testcontainers.bom))
+    testImplementation(libs.testcontainers.junit.jupiter)
+    testImplementation(libs.testcontainers.kafka)
 }

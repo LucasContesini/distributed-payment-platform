@@ -197,6 +197,24 @@ services:
       kafka:
         condition: service_healthy
 
+  audit-service:
+    build:
+      context: ../..
+      dockerfile: audit-service/Dockerfile
+    ports:
+      - "8086:8086"
+    environment:
+      DB_URL: jdbc:postgresql://postgres:5432/finflow
+      DB_USERNAME: finflow
+      DB_PASSWORD: finflow
+      KAFKA_BOOTSTRAP_SERVERS: kafka:29092
+      ZIPKIN_ENDPOINT: http://zipkin:9411/api/v2/spans
+    depends_on:
+      postgres:
+        condition: service_healthy
+      kafka:
+        condition: service_healthy
+
 volumes:
   postgres_data:
   redis_data:
