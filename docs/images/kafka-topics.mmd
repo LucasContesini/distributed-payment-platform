@@ -1,0 +1,18 @@
+graph LR
+    PS[payment-service]
+    FS[fraud-service]
+    NS[notification-service]
+
+    PS -->|fraud-analysis-requested\nkey: paymentId\npartitions: 6| FS
+
+    FS -->|fraud-analysis-completed\nkey: paymentId\npartitions: 6| PS
+
+    PS -->|payment-approved\nkey: paymentId\npartitions: 6| NS
+    PS -->|payment-rejected\nkey: paymentId\npartitions: 6| NS
+
+    PS -.->|payment-approved\nkey: paymentId| ADLQ[audit-service\nPhase 6+]
+    PS -.->|payment-rejected| ADLQ
+
+    FS -->|*.DLQ\non failure| DLQ[(Dead Letter Queues)]
+    NS -->|*.DLQ\non failure| DLQ
+    PS -->|*.DLQ\non failure| DLQ
