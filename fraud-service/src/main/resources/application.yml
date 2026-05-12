@@ -22,10 +22,12 @@ spring:
     baseline-on-migrate: true
   kafka:
     bootstrap-servers: ${KAFKA_BOOTSTRAP_SERVERS:localhost:9092}
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
 
 server:
-  shutdown: graceful
   port: ${SERVER_PORT:8084}
+  shutdown: graceful
 
 management:
   endpoints:
@@ -39,8 +41,6 @@ management:
     export:
       prometheus:
         enabled: true
-
-management:
   zipkin:
     tracing:
       endpoint: ${ZIPKIN_ENDPOINT:http://localhost:9411/api/v2/spans}
@@ -51,7 +51,3 @@ management:
 logging:
   level:
     com.finflow: INFO
-
-spring:
-  lifecycle:
-    timeout-per-shutdown-phase: 30s

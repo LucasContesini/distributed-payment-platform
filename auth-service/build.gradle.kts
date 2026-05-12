@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+    implementation(project(":shared-libs:common-domain"))
     implementation(libs.spring.boot.starter.web)
     implementation(libs.springdoc.openapi)
     implementation(libs.spring.boot.starter.data.jpa)
