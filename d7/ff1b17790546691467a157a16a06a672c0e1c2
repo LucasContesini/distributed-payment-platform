@@ -1,0 +1,77 @@
+audit-service/src/test/java/com/finflow/audit/application/AuditServiceTest.java
+  s_0c81921be0364e::t_6114e329385ff0 1-54
+audit-service/src/main/java/com/finflow/audit/infrastructure/persistence/SpringDataAuditRecordRepository.java
+  s_0c81921be0364e::t_250ff151e22f47 1-11
+audit-service/build.gradle.kts
+  s_0c81921be0364e::t_3e3820a06514dc 13,15-17,24-27
+infra/k8s/wallet-service.yml
+  s_0c81921be0364e::t_9d452c46b18da8 1-101
+audit-service/src/main/java/com/finflow/audit/infrastructure/kafka/KafkaConfig.java
+  s_0c81921be0364e::t_5dc1c88e78e72c 1-73
+infra/k8s/README.md
+  s_0c81921be0364e::t_e87be847bf4dc6 1-73
+infra/k8s/payment-service.yml
+  s_0c81921be0364e::t_840aad33427ef2 1-114
+infra/k8s/audit-service.yml
+  s_0c81921be0364e::t_c7e672d624427b 1-70
+audit-service/src/main/resources/logback-spring.xml
+  s_0c81921be0364e::t_0a977d78a2c6dd 1-27
+audit-service/src/main/java/com/finflow/audit/api/AuditController.java
+  s_0c81921be0364e::t_fd14111a463e71 1-27
+infra/k8s/namespace.yml
+  s_0c81921be0364e::t_7b22c9144a671e 1-7
+audit-service/src/main/java/com/finflow/audit/AuditServiceApplication.java
+  s_0c81921be0364e::t_3c82dd2b94111c 1-14
+infra/k8s/configmap.yml
+  s_0c81921be0364e::t_7549456a73e58b 1-14
+infra/docker/docker-compose.yml
+  s_0c81921be0364e::t_b42bfdd8cb4d05 200-217
+infra/k8s/secret.yml
+  s_0c81921be0364e::t_8557b060a54b11 1-11
+audit-service/src/main/java/com/finflow/audit/infrastructure/config/SecurityConfig.java
+  s_0c81921be0364e::t_0a4b02c87547dd 1-21
+audit-service/src/main/resources/application.yml
+  s_0c81921be0364e::t_18dd2e03939a35 1-54
+audit-service/src/main/java/com/finflow/audit/application/AuditService.java
+  s_0c81921be0364e::t_6aa1a990ac470c 1-45
+audit-service/src/main/java/com/finflow/audit/domain/AuditRecordRepository.java
+  s_0c81921be0364e::t_6a988867c21aca 1-9
+infra/k8s/fraud-service.yml
+  s_0c81921be0364e::t_b8c94e460a7603 1-90
+infra/k8s/api-gateway.yml
+  s_0c81921be0364e::t_79eba52f6bbbcd 1-122
+audit-service/src/main/java/com/finflow/audit/domain/AuditEventType.java
+  s_0c81921be0364e::t_53dcd2698311a4 1-8
+infra/monitoring/prometheus/prometheus.yml
+  s_0c81921be0364e::t_c13a89bfa7b8c5 40
+audit-service/Dockerfile
+  s_0c81921be0364e::t_f387d622a41108 1-17
+audit-service/src/main/resources/db/migration/V1__create_audit_records_table.sql
+  s_0c81921be0364e::t_b10e52bd3b646f 1-14
+audit-service/src/main/java/com/finflow/audit/infrastructure/persistence/AuditRecordRepositoryAdapter.java
+  s_0c81921be0364e::t_259b9ceb725a93 1-28
+audit-service/src/main/java/com/finflow/audit/domain/AuditRecord.java
+  s_0c81921be0364e::t_4aaebd3fe6b847 1-55
+infra/k8s/auth-service.yml
+  s_0c81921be0364e::t_955c3c981ba688 1-88
+infra/k8s/notification-service.yml
+  s_0c81921be0364e::t_fe958faadec2ee 1-70
+audit-service/src/main/java/com/finflow/audit/infrastructure/kafka/AuditEventConsumer.java
+  s_0c81921be0364e::t_9a5347fe8a98ba 1-45
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.4.6",
+  "base_commit_sha": "d7ff1b17790546691467a157a16a06a672c0e1c2",
+  "prompts": {},
+  "sessions": {
+    "s_0c81921be0364e": {
+      "agent_id": {
+        "tool": "claude",
+        "id": "5125cdf6-c83b-4082-a691-47090e976303",
+        "model": "claude-sonnet-4-6"
+      },
+      "human_author": "LucasContesini <lucas.contesini@hotmail.com>"
+    }
+  }
+}
