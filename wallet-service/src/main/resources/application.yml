@@ -22,6 +22,7 @@ spring:
     baseline-on-migrate: true
 
 server:
+  shutdown: graceful
   port: ${SERVER_PORT:8083}
 
 management:
@@ -48,3 +49,7 @@ management:
 logging:
   level:
     com.finflow: INFO
+
+spring:
+  lifecycle:
+    timeout-per-shutdown-phase: 30s
